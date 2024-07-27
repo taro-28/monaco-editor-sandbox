@@ -24,7 +24,7 @@ const exampleUserJsCode = `/**
  * @param {number} args.age
  * @returns {Promise<{ name: string, age: number }>}
  */
-export const createUser = async ({ name, age }) => {};`;
+export const createUser = (args) => {};`;
 
 const defaultValue = `import { createUser } from "@example/user";
 
