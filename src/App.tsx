@@ -3,15 +3,23 @@ import { useEffect } from "react";
 
 const typeJsCode = `/**
  * @typedef {Object} Data
- * @property {string} name
- * @property {number} age
+ * @property {string} Data.name
+ * @property {number} Data.age
+ */
+/**
+ * @typedef {Object} Option
+ * @property {boolean} Option.isTest
+ * @property {string} Option.env
+ */
+/**
+ * @callback JSAction
+ * @param {Data} data
+ * @param {Option} option
  */
 export {}`;
 
-const defaultValue = `/**
- * @param { import("type").Data } data
- */
-export default async (data) => {
+const defaultValue = `/** @type { import("type").JSAction } */
+export default async (data, option) => {
   return {
     name: data.name,
     age: data.age
