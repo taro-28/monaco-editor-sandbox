@@ -18,7 +18,17 @@ const typeJsCode = `/**
  */
 export {}`;
 
-const defaultValue = `/** @type { import("type").JSAction } */
+const exampleUserJsCode = `/**
+ * @param {Object} args
+ * @param {string} args.name
+ * @param {number} args.age
+ * @returns {Promise<{ name: string, age: number }>}
+ */
+export const createUser = async ({ name, age }) => {};`;
+
+const defaultValue = `import { createUser } from "@example/user";
+
+/** @type { import("type").JSAction } */
 export default async (data, option) => {
   return {
     name: data.name,
@@ -34,6 +44,11 @@ function App() {
       typeJsCode,
       "javascript",
       monaco.Uri.parse("type.js"),
+    );
+    monaco?.editor.createModel(
+      exampleUserJsCode,
+      "javascript",
+      monaco.Uri.parse("@example/user.js"),
     );
   }, [monaco]);
   return (
