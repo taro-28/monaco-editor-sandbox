@@ -12,7 +12,7 @@ const typeJsCode = `/**
  * @property {string} Option.env
  */
 /**
- * @callback JSAction
+ * @callback Func
  * @param {Data} data
  * @param {Option} option
  */
@@ -28,7 +28,7 @@ export const createUser = (args) => {};`;
 
 const defaultValue = `import { createUser } from "@example/user";
 
-/** @type { import("type").JSAction } */
+/** @type { import("type").Func } */
 export default async (data, option) => {
   return {
     name: data.name,
